@@ -16,7 +16,7 @@ UV_CACHE_DIR=.uv-cache uv run python src/main.py
 
 Add `OPENAI_API_KEY` to `.env` if you want the default graph path to use OpenAI directly. Placeholder values such as `sk-...` or `your_api_key_here` are treated as missing.
 
-The default API model is `gpt-5.6-luna`. Set `OPENAI_MODEL` to override it.
+The default API model is `gpt-6-luna`. Set `OPENAI_MODEL` to override it.
 
 ## API response contract
 
