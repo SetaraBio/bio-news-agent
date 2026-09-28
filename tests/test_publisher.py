@@ -798,3 +798,11 @@ def test_github_graphql_request_via_token_wraps_timeout(monkeypatch):
         assert "GitHub GraphQL failed: timed out" in str(exc)
     else:
         raise AssertionError("expected RuntimeError")
+
+
+def test_local_runs_target_the_renamed_repository(monkeypatch):
+    # Local automation has no GITHUB_REPOSITORY. The org moved to SetaraBio on
+    # 2026-09-22, and GitHub answers writes to the old path with HTTP 307.
+    monkeypatch.delenv("GITHUB_REPOSITORY", raising=False)
+
+    assert publisher._get_repo_owner_name() == ("SetaraBio", "bio-news-agent")

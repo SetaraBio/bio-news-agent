@@ -44,7 +44,7 @@ OPENAI_TIMEOUT_SECONDS: int = _get_env_int("OPENAI_TIMEOUT_SECONDS", 60)
 OPENAI_RETRIES: int = _get_env_int("OPENAI_RETRIES", 2)
 DIGEST_OUTPUT_FILE: str = _get_env_str("DIGEST_OUTPUT_FILE", "news.md")
 DIGEST_STATUS_FILE: str = _get_env_str("DIGEST_STATUS_FILE", "digest-run-status.json")
-DIGEST_ISSUE_REPO: str = _get_env_str("DIGEST_ISSUE_REPO", "ActioBio/bio-news-agent")
+DIGEST_ISSUE_REPO: str = _get_env_str("DIGEST_ISSUE_REPO", "SetaraBio/bio-news-agent")
 DIGEST_ISSUE_LABEL: str = _get_env_str("DIGEST_ISSUE_LABEL", "ai-digest")
 DIGEST_ISSUE_TITLE_PREFIX: str = _get_env_str(
     "DIGEST_ISSUE_TITLE_PREFIX",
