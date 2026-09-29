@@ -4,6 +4,17 @@
 - Build the daily biotech/pharma digest locally with an agent.
 - Publish the final issue through GitHub Actions so the issue author is `app/github-actions`.
 
+## Where To Look
+- `README.md` is for newsletter readers only; keep it free of developer detail.
+- [docs/development.md](docs/development.md): setup, API response contract, agent-driven mode and publication safety, decision schema, feed configuration, CI.
+- [docs/architecture.md](docs/architecture.md): pipeline diagrams and design notes.
+- [feeds.json](feeds.json): news sources.
+
+## Verify Changes
+1. `UV_CACHE_DIR=.uv-cache uv sync --locked --extra dev`
+2. `UV_CACHE_DIR=.uv-cache uv run pytest -q`
+3. `UV_CACHE_DIR=.uv-cache uv run mypy src`
+
 ## Preferred Agent Flow
 1. `UV_CACHE_DIR=.uv-cache uv sync --locked`
 2. `UV_CACHE_DIR=.uv-cache uv run python src/main.py --check-issue --issue-status-file digest-issue-status.json`
