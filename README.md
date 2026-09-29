@@ -6,7 +6,7 @@ The biotech and pharma news that matters, delivered to your inbox. Two minutes t
 
 **Get it by email** with a free [GitHub account](https://github.com/signup):
 
-1. Open [Watch settings](https://github.com/SetaraBio/bio-news-agent/subscription).
+1. At the top of [this repository](https://github.com/SetaraBio/bio-news-agent), click **Watch** (or **Unwatch** if already watching).
 2. Choose **Custom**, tick **Issues**, and click **Apply**.
 
-Make sure email is on in your [notification settings](https://github.com/settings/notifications). To stop, choose **Unwatch**.
+Make sure email is on in your [notification settings](https://github.com/settings/notifications). To stop, open the same menu and choose **Participating and @mentions**.
