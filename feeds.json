@@ -9,11 +9,6 @@
     "source": "MHRA",
     "source_role": "primary"
   },
-  "https://www.nih.gov/news-releases/feed.xml": {
-    "category": "All",
-    "source": "NIH",
-    "source_role": "primary"
-  },
   "https://www.statnews.com/category/biotech/feed/": {
     "category": "All",
     "source": "STAT Biotech",
@@ -27,16 +22,6 @@
   "https://endpts.com/feed/": {
     "category": "All",
     "source": "Endpoints News",
-    "source_role": "independent_reporting"
-  },
-  "https://www.fiercebiotech.com/rss/xml": {
-    "category": "All",
-    "source": "FierceBiotech",
-    "source_role": "independent_reporting"
-  },
-  "https://www.fiercepharma.com/rss/xml": {
-    "category": "All",
-    "source": "FiercePharma",
     "source_role": "independent_reporting"
   },
   "https://www.nature.com/nrd.rss": {

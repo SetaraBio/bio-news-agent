@@ -1,6 +1,6 @@
 # Daily Biotech & Pharma News
 
-The biotech and pharma news that matters, delivered to your inbox. Two minutes to read, picked from 15 trusted sources. Free, no ads.
+The biotech and pharma news that matters, delivered to your inbox. Two minutes to read, picked from 12 trusted sources. Free, no ads.
 
 [See the latest digests](https://github.com/SetaraBio/bio-news-agent/issues?q=is%3Aissue+label%3Aai-digest+sort%3Acreated-desc)
 

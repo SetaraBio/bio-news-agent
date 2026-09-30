@@ -8,6 +8,7 @@
 - `README.md` is for newsletter readers only; keep it free of developer detail.
 - [docs/development.md](docs/development.md): setup, API response contract, agent-driven mode and publication safety, decision schema, feed configuration, CI.
 - [docs/architecture.md](docs/architecture.md): pipeline diagrams and design notes.
+- [docs/follow-ups.md](docs/follow-ups.md): known limitations.
 - [feeds.json](feeds.json): news sources.
 
 ## Verify Changes
@@ -44,6 +45,11 @@
 - `digest-candidates.json`: grouped candidate snapshot.
 - `digest-decisions.json`: agent editorial decisions.
 - `news.md`: rendered digest body.
+
+## Editorial Bar
+- Mark roundup posts, newsletter bundles, people-move items, broad trend explainers, and generic market chatter as off-topic unless they contain a concrete material event. This mirrors the API enrichment prompt.
+- Write each `short_title` as a complete, plain-English headline of 8 words or fewer; longer titles are cut off at 8 words. Keep study-stage and approval context, such as Phase 3 or accelerated approval.
+- Keep quiet days short; do not pad the digest to reach a length.
 
 ## Decision Shape
 - For the full input contract, inspect the current `digest-candidates.json`, including `decision_guidance`, and the decision-schema section in [docs/development.md](docs/development.md). `keep_id`, `duplicate_ids`, `off_topic_ids`, and `top_stories` refer to candidate `item_id` values such as `g1i1`, never the article's `id` or `link`.
