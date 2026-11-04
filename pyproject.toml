@@ -5,7 +5,7 @@ requires-python = ">=3.12"
 dependencies = [
     "feedparser>=6.0.0",
     "python-dotenv>=1.0.0",
-    "langgraph>=0.1.0",
+    "langgraph>=1.2.14",
     "langchain-core>=0.1.0",
     "openai>=1.0.0",
     "tenacity>=8.0.0",
