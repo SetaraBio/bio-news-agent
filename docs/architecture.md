@@ -100,7 +100,7 @@ flowchart LR
 - LLM request timeouts retry before falling back to local duplicate resolution. Malformed responses and invalid dispositions also enter that existing fallback. Each complete API response is validated before applying its contents or promoting a keep; see the [API response contract and local fallback limits](development.md#api-response-contract).
 - The LLM receives candidate groups and returns structured duplicate clusters.
 - `--dispatch-publish` triggers `.github/workflows/publish-digest.yml` with a compressed digest payload; that workflow runs the repo-local `--publish-issue` path on GitHub Actions.
-- `.github/workflows/digest.yml` is manual-only. Manual dispatch skips its schedule-only preflight, runs the API graph, and rechecks the issue idempotently only when publishing.
+- `.github/workflows/digest.yml` is the scheduled API fallback, targeting 12:30 PM `America/New_York`. Its preflight skips the build when today's digest issue already exists. Manual dispatch skips that preflight, runs the API graph, and rechecks the issue idempotently only when publishing.
 - Direct `--publish-issue` remains a manual fallback.
 - Short display titles are generated only for kept items after duplicates are resolved.
 - Publication uses one frozen Eastern date for dispatch inputs, title generation and issue selection. Actions requires `DIGEST_DATE`; missing, malformed or noncurrent dates fail closed, with a second date check after issue lookup before starting a write.

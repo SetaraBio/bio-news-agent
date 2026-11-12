@@ -26,7 +26,7 @@ The API graph uses separate dedupe and enrichment responses:
 - Enrichment must account for every requested item ID exactly once in `items` or `off_topic_ids`, with no overlap, repeats, or unknown IDs. An omitted `off_topic_ids` defaults to an empty list.
 - The complete set of response dispositions is validated before applying response contents or promoting a requested keep. Omitted candidates are not silently seeded or retained. Valid singleton/promotion behavior and optional title/summary defaults remain unchanged. Duplicate counts include each discarded item once; distinct-source coverage remains a separate measure.
 
-Invalid API responses go through the existing broad exception handler into local fallback, like other API failures. The API workflow remains manual-only. The fallback policy and broader fallback candidate grouping are unchanged; grouping proposes comparisons and does not authorize deletion.
+Invalid API responses go through the existing broad exception handler into local fallback, like other API failures. The fallback policy and broader fallback candidate grouping are unchanged; grouping proposes comparisons and does not authorize deletion.
 
 Regular comparison groups (both candidate export and API dedupe) also consider article-URL basename clues against the other item's original headline and summary. Two distinct alphabetic tokens of at least six characters are required, excluding configured company-name tokens and generic news/date words. Only absolute HTTP(S) links contribute; the basename is percent-decoded and trailing slashes are allowed. Hostnames, parent directories, query parameters, and fragments are ignored. Missing/non-string links, absent hosts, and URL/port parsing errors supply no hint. This is clue extraction, not comprehensive URL validation. Connected groups can contain different events: for example, the September 8 dystrophy reports can now be compared together, while the separate Novartis Lp(a) report must remain a singleton in the editorial decisions. URL clues do not prove event identity or guarantee the editor/model will recognize duplicates. They do not change high-confidence headline matching or local fallback grouping. The API payload is unchanged; URL clues affect grouping, not the fields sent to the model.
 
@@ -187,6 +187,6 @@ Optional fields:
 }
 ```
 
-## CI
+## CI and scheduled runs
 
-Push and pull request CI runs `pytest` and `mypy`. Scheduled agent runs generate locally and dispatch the final publish through GitHub Actions so the final issue author is `app/github-actions`. Publisher issue matching and generated title dates use `America/New_York`, so a delayed run does not shift the digest to the wrong calendar day.
+Scheduled GitHub Actions fallback runs target 12:30 PM `America/New_York` and check for today's digest issue before calling the LLM, so they skip when the agent run already published. Manual workflow dispatch intentionally bypasses that scheduled preflight. Push and pull request CI runs `pytest` and `mypy`. Scheduled agent runs generate locally and dispatch the final publish through GitHub Actions so the final issue author is `app/github-actions`. Publisher issue matching and generated title dates use `America/New_York`, so a delayed run does not shift the digest to the wrong calendar day.

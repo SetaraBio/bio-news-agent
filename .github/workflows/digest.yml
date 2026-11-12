@@ -10,6 +10,10 @@ permissions:
   issues: write 
 
 on:
+  schedule:
+    # The timezone removes DST drift; the preflight below handles delayed-run date boundaries.
+    - cron: "30 12 * * *"
+      timezone: "America/New_York"
   workflow_dispatch:
 
 jobs:

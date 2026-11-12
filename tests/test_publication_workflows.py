@@ -144,5 +144,10 @@ def test_publication_receiver_remains_manual_only():
     assert set(_triggers(_workflow("publish-digest.yml"))) == {"workflow_dispatch"}
 
 
-def test_legacy_bio_workflow_remains_manual_only():
-    assert set(_triggers(_workflow("digest.yml"))) == {"workflow_dispatch"}
+def test_legacy_bio_schedule_remains_1230_eastern():
+    triggers = _triggers(_workflow("digest.yml"))
+
+    assert set(triggers) == {"schedule", "workflow_dispatch"}
+    assert triggers["schedule"] == [
+        {"cron": "30 12 * * *", "timezone": "America/New_York"}
+    ]
